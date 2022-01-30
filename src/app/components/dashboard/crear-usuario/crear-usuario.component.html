@@ -1,0 +1,45 @@
+<mat-card>
+    <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
+        <mat-grid-list cols="4" rowHeight="70px">
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho">
+                    <mat-label>
+                        Usuario
+                    </mat-label>
+                    <input matInput autocomplete="off" formControlName="usuario"> 
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="3" [rowspan]="5" [style.background]="'lightblue'">
+                <img src="./assets/img/usuario.png" width="250" height="250  ">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho">
+                    <mat-label>
+                        Nombre
+                    </mat-label>
+                    <input matInput autocomplete="off" formControlName="nombre">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field appearance="fill" class="ancho">
+                    <mat-label>
+                        Apellido
+                    </mat-label>
+                    <input matInput autocomplete="off" formControlName="apellido">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                <mat-form-field appearance="fill" class="ancho">
+                    <mat-label>Sexo</mat-label>
+                    <mat-select formControlName="sexo">
+                        <mat-option *ngFor="let value of sexo"  [value]="value">{{value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                <button type="submit" mat-raised-button color="primary" style="margin-right: 20px;" [disabled]="form.invalid" >Agregar</button>
+                <button mat-raised-button color="primary" routerLink="/dashboard/inicio">Volver</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</mat-card>
